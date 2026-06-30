@@ -14,6 +14,9 @@ import WhyChooseUs from './sections/WhyChooseUs';
 import Certifications from './sections/Certifications';
 import TrustBanner from './sections/TrustBanner';
 import Gallery from './sections/Gallery';
+import CocoBrochure from './sections/CocoBrochure';
+import DodoBrochure from './sections/DodoBrochure';
+import PriceList from './sections/PriceList';
 import Testimonials from './sections/Testimonials';
 import FAQ from './sections/FAQ';
 import Contact from './sections/Contact';
@@ -37,6 +40,9 @@ export default function App() {
         <Certifications />
         <TrustBanner />
         <Gallery />
+        <CocoBrochure />
+        <DodoBrochure />
+        <PriceList />
         <Testimonials />
         <FAQ />
         <Contact onToast={(msg) => push(msg, 'success')} />

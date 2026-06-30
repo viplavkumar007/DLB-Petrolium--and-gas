@@ -60,7 +60,7 @@ export default function Navbar() {
             <img src={brand.logo} alt={brand.fullName} className="h-14 md:h-20 w-auto" />
           </a>
 
-          <ul className="hidden lg:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-5 xl:gap-8">
             {nav.map((item) => {
               const id = item.href.replace('#', '');
               const isActive = activeId === id;
@@ -68,7 +68,7 @@ export default function Navbar() {
                 <li key={item.href} className="group relative">
                   <a
                     href={item.href}
-                    className={`text-base font-display font-medium transition-colors ${
+                    className={`whitespace-nowrap text-sm xl:text-base font-display font-medium transition-colors ${
                       isActive ? 'text-[#bd1b27]' : 'text-black hover:text-[#bd1b27]'
                     }`}
                   >

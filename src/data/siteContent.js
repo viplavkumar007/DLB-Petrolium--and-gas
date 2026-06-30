@@ -15,7 +15,7 @@ export const brand = {
 };
 
 export const contact = {
-  phone: '+91 62891 42533',
+  phone: '+91 6289 142 533',
   phoneRaw: '916289142533',
   emailPrimary: 'dlbpetrolium@gmail.com',
   emailSecondary: 'rdaslaskar76@gmail.com',
@@ -34,6 +34,8 @@ export const nav = [
   { label: 'Products', href: '#products' },
   { label: 'Certifications', href: '#certifications' },
   { label: 'Gallery', href: '#gallery' },
+  { label: 'COCO Brochure', href: '#coco-brochure' },
+  { label: 'DODO Brochure', href: '#dodo-brochure' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -205,13 +207,77 @@ export const trustBanner = {
 // Gallery
 // ---------------------------------------------------------------------
 
+const profileGalleryItems = Array.from({ length: 35 }, (_, index) => {
+  const pageNumber = String(index + 1).padStart(2, '0');
+
+  return {
+    title: `Company Profile Page ${index + 1}`,
+    image: `/gallery/dlb-company-profile-page-${pageNumber}.jpg`,
+  };
+});
+
 export const galleryItems = [
-  { title: 'Refinery Operations', query: 'oil refinery industrial plant' },
-  { title: 'Petroleum Tanker Logistics', query: 'petroleum tanker truck highway' },
-  { title: 'LPG Cylinder Storage', query: 'LPG gas cylinders stacked warehouse' },
-  { title: 'Gas Pipeline Network', query: 'industrial gas pipeline plant' },
-  { title: 'Industrial Storage Plant', query: 'oil storage tanks industrial' },
-  { title: 'Fuel Distribution Yard', query: 'oil barrels fuel logistics yard' },
+  {
+    title: 'Mission Milestone 20 Days Left',
+    image: '/gallery/mission-milestone-20-days-left.png',
+  },
+  ...profileGalleryItems,
+];
+
+export const cocoBrochures = [
+  {
+    title: 'COCO Low Investment High Profit',
+    image: '/coco-brochure/coco-low-investment-high-profit.png',
+    downloadName: 'dlb-gas-coco-low-investment-high-profit.png',
+  },
+  {
+    title: 'COCO Distributorship 95 Lakh',
+    image: '/coco-brochure/coco-distributorship-95-lakh.png',
+    downloadName: 'dlb-gas-coco-distributorship-95-lakh.png',
+  },
+  {
+    title: 'COCO Dealership 35 Lakh',
+    image: '/coco-brochure/coco-dealership-35-lakh.png',
+    downloadName: 'dlb-gas-coco-dealership-35-lakh.png',
+  },
+  {
+    title: 'COCO Brochure Page 1 - Smart Investment',
+    image: '/coco-brochure/coco-model-investment.png',
+    downloadName: 'coco-model-investment.png',
+  },
+  {
+    title: 'COCO Brochure Page 2 - Investment Plan Highlights',
+    image: '/coco-brochure/coco-investment-plan-highlights.png',
+    downloadName: 'dlb-gas-investment-plan-highlights.png',
+  },
+  {
+    title: 'COCO Brochure Page 3 - Build Today Earn Tomorrow',
+    image: '/coco-brochure/coco-build-today-earn-tomorrow.png',
+    downloadName: 'coco-build-today-earn-tomorrow.png',
+  },
+];
+
+export const dodoBrochures = [
+  {
+    title: 'DODO Business Proposal',
+    image: '/dodo-brochure/dodo-business-proposal.png',
+    downloadName: 'dlb-gas-dodo-business-proposal.png',
+  },
+  {
+    title: 'DODO 2KL Fuel Bowser Quotation',
+    image: '/dodo-brochure/dodo-2kl-fuel-bowser-quotation.png',
+    downloadName: 'dlb-gas-dodo-2kl-fuel-bowser-quotation.png',
+  },
+  {
+    title: 'DODO Smart Business Bowser System',
+    image: '/dodo-brochure/dodo-smart-business-bowser-system.png',
+    downloadName: 'dlb-gas-dodo-smart-business-bowser-system.png',
+  },
+  {
+    title: 'DODO Application Fee and Documents',
+    image: '/dodo-brochure/dodo-application-fee-documents.png',
+    downloadName: 'dlb-gas-dodo-application-fee-documents.png',
+  },
 ];
 
 // ---------------------------------------------------------------------
