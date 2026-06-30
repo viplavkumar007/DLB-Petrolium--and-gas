@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { brand, nav, contact } from '../../data/siteContent';
+import { brand, contact, nav } from '../../data/siteContent';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
 import { SECTION_IDS } from '../../lib/constants';
 import { buildTelLink } from '../../lib/whatsapp';
-import Button from '../common/Button';
 import MobileOffcanvas from './MobileOffcanvas';
 
 export default function Navbar() {
@@ -21,59 +19,62 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  function openBookConnection() {
+    window.dispatchEvent(new CustomEvent('open-book-connection'));
+  }
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? 'bg-white/90 backdrop-blur-md shadow-card py-2'
-            : 'bg-white/40 backdrop-blur-sm py-4'
+        className={`fixed top-0 left-0 right-0 z-40 bg-[#bd1b27] transition-shadow duration-300 ${
+          scrolled ? 'shadow-card' : ''
         }`}
       >
-        {/* Top contact strip — collapses on scroll */}
-        <div
-          className={`hidden md:block border-b border-navy-100 overflow-hidden transition-all duration-300 ${
-            scrolled ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100 mb-3'
-          }`}
-        >
-          <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between text-xs text-navy-600 pb-2">
-            <div className="flex items-center gap-6">
-              <a href={`mailto:${contact.emailPrimary}`} className="flex items-center gap-1.5 hover:text-crimson-600 transition-colors">
+        <div className="hidden md:block">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 text-white md:px-8">
+            <div className="flex items-center gap-8 text-sm font-bold lg:text-base">
+              <a href={`mailto:${contact.emailPrimary}`} className="flex items-center gap-2 hover:text-white/80">
                 <i className="fas fa-envelope" aria-hidden="true" />
-                {contact.emailPrimary}
+                <span>Email. {contact.emailPrimary}</span>
               </a>
-              <a href={buildTelLink()} className="flex items-center gap-1.5 hover:text-crimson-600 transition-colors">
-                <i className="fas fa-phone" aria-hidden="true" />
-                {contact.phone}
+              <a href={buildTelLink()} className="flex items-center gap-2 hover:text-white/80">
+                <i className="fas fa-mobile-alt" aria-hidden="true" />
+                <span>Call. {contact.phone}</span>
               </a>
             </div>
-            <span className="flex items-center gap-1.5 font-semibold text-crimson-600">
-              <i className="fas fa-earth-asia" aria-hidden="true" />
-              PAN India Distribution
-            </span>
+            <div className="flex items-center gap-8 text-sm font-bold lg:text-base">
+              <button type="button" onClick={openBookConnection} className="flex items-center gap-2 hover:text-white/80">
+                <i className="fas fa-fire" aria-hidden="true" />
+                <span>Book Connection</span>
+              </button>
+              <a href="#contact" className="flex items-center gap-2 hover:text-white/80">
+                <i className="fas fa-user-tie" aria-hidden="true" />
+                <span>Become a Business Partner</span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <nav className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
+        <nav className="mx-auto mb-3 flex max-w-7xl items-center justify-between bg-white px-5 py-5 md:px-8 lg:py-7">
           <a href="#home" className="flex items-center gap-2 shrink-0">
-            <img src={brand.logo} alt={brand.fullName} className="h-12 md:h-14 w-auto" />
+            <img src={brand.logo} alt={brand.fullName} className="h-14 md:h-20 w-auto" />
           </a>
 
-          <ul className="hidden lg:flex items-center gap-7">
+          <ul className="hidden lg:flex items-center gap-8">
             {nav.map((item) => {
               const id = item.href.replace('#', '');
               const isActive = activeId === id;
               return (
-                <li key={item.href} className="relative">
+                <li key={item.href} className="group relative">
                   <a
                     href={item.href}
-                    className={`text-sm font-display font-medium uppercase tracking-wide transition-colors ${
-                      isActive ? 'text-crimson-600' : 'text-navy-700 hover:text-crimson-600'
+                    className={`text-base font-display font-medium transition-colors ${
+                      isActive ? 'text-[#bd1b27]' : 'text-black hover:text-[#bd1b27]'
                     }`}
                   >
                     {item.label}
                     <span
-                      className={`absolute -bottom-1.5 left-0 h-0.5 bg-crimson-600 transition-all duration-300 ${
+                      className={`absolute -bottom-1.5 left-0 h-0.5 bg-[#bd1b27] transition-all duration-300 ${
                         isActive ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}
                     />
@@ -84,15 +85,25 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Button href="#contact" variant="primary" className="!px-6 !py-2.5 !text-xs">
-              Get a Quote
-            </Button>
+            <a
+              href="#contact"
+              className="border-l border-steel-200 pl-8 font-display text-base font-medium text-black transition-colors hover:text-[#bd1b27]"
+            >
+              Apply Now
+            </a>
+            <button
+              type="button"
+              aria-label="Account"
+              className="ml-5 flex h-10 w-10 items-center justify-center border-l border-steel-200 pl-5 text-black transition-colors hover:text-[#bd1b27]"
+            >
+              <i className="fas fa-circle-user text-2xl" aria-hidden="true" />
+            </button>
           </div>
 
           <button
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
-            className="lg:hidden flex h-11 w-11 items-center justify-center rounded-md border border-navy-200 text-navy-800"
+            className="lg:hidden flex h-11 w-11 items-center justify-center text-black"
           >
             <i className="fas fa-bars text-lg" aria-hidden="true" />
           </button>

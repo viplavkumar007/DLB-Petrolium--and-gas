@@ -40,6 +40,26 @@ body {
   .clip-corner-sm {
     clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
   }
+  .hero-angle-btn {
+    clip-path: polygon(0 0, 92% 0, 100% 22%, 100% 100%, 0 100%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 15px 18px;
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .hero-angle-btn:hover {
+    transform: translateY(-2px);
+  }
   .text-gradient-flame {
     background: linear-gradient(135deg, #F7941D, #ED1C24);
     -webkit-background-clip: text;

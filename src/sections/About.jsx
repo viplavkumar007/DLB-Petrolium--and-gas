@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { about } from '../data/siteContent';
-import { fadeUp, slideInLeft, slideInRight, staggerContainer, staggerItem, viewportOnce } from '../lib/animations';
+import { slideInLeft, slideInRight, staggerContainer, staggerItem, viewportOnce } from '../lib/animations';
+import aboutImage from '../assets/about/dlb-gas-about.jpeg';
 
 export default function About() {
   return (
@@ -13,14 +14,13 @@ export default function About() {
           viewport={viewportOnce}
           className="relative"
         >
-          <div className="relative clip-corner overflow-hidden shadow-card-hover">
+          <div className="relative clip-corner overflow-hidden bg-white shadow-card-hover">
             <img
-              src="https://images.unsplash.com/photo-1565514020179-026b92b2a0b3?auto=format&fit=crop&w=1000&q=80"
-              alt="Industrial petroleum storage facility"
+              src={aboutImage}
+              alt="DLB Gas logo"
               loading="lazy"
-              className="w-full h-[420px] object-cover"
+              className="w-full h-[420px] object-contain p-8"
             />
-            <div className="absolute inset-0 bg-navy-900/20" />
           </div>
           <div className="absolute -bottom-6 -left-6 hidden md:flex h-28 w-28 items-center justify-center rounded-lg bg-flame-gradient shadow-glow">
             <div className="text-center text-white">
