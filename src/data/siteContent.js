@@ -11,7 +11,7 @@ export const brand = {
   tagline: 'Fuelling Growth. Energizing Tomorrow.',
   shortTagline: 'Trusted Oil & Gas Distribution Across India',
   logo: logoImg,
-  website: 'www.dlbpetroleum.com',
+  website: 'www.dlbpetroleum.online',
 };
 
 export const contact = {
@@ -19,7 +19,7 @@ export const contact = {
   phoneRaw: '916289142533',
   emailPrimary: 'dlbpetrolium@gmail.com',
   emailSecondary: 'rdaslaskar76@gmail.com',
-  website: 'https://www.dlbpetroleum.com',
+  website: 'https://www.dlbpetroleum.online',
   address:
     '2nd Floor, Promodh Bhawan, Ambicapatty, Near Durgasankar Patshala, Silchar – 788004, Assam, India',
   whatsappNumber: '916289142533',
