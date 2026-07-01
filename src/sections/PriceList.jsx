@@ -12,7 +12,7 @@ export default function PriceList() {
 
         <figure className="overflow-hidden rounded-lg border border-navy-100 bg-steel-50 p-2 shadow-card md:p-4">
           <img
-            src="/dodo-brochure/dlb-price-list.jpeg"
+            src="/dodo-brochure/dlb-price-list.png"
             alt="DLB Gas franchisee price list"
             loading="lazy"
             decoding="async"
