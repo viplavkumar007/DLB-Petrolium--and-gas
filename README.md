@@ -58,8 +58,8 @@ Edit this file to update any copy on the site without touching components.
 ## Legal Documents
 The Certificate of Incorporation, Memorandum of Association, and Articles of Association are stored in `public/documents/` and are previewed in-browser via the Certifications section's document modal.
 
-## WhatsApp Integration
-All enquiry buttons and the floating WhatsApp button deep-link to `wa.me` with a pre-filled message, configured in `src/lib/whatsapp.js` and `src/data/siteContent.js` (`contact.whatsappDefaultMessage`).
+## Lead Routing
+Enquiry and book-connection submissions prepare an email to `dlbpetrolium@gmail.com`. Only buttons explicitly labeled for WhatsApp, including the floating WhatsApp button, deep-link to `wa.me` with a pre-filled message configured in `src/lib/whatsapp.js` and `src/data/siteContent.js` (`contact.whatsappDefaultMessage`).
 
 ## Notes
 - Gallery images currently use Unsplash source queries as placeholders — replace with real photography in `src/data/siteContent.js` (`galleryItems`) and `src/sections/Hero.jsx` / `About.jsx` background images when available.

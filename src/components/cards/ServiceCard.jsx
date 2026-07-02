@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { staggerItem } from '../../lib/animations';
-import { buildWhatsAppLink } from '../../lib/whatsapp';
+import { buildMailtoLink } from '../../lib/whatsapp';
 
 export default function ServiceCard({ icon, title, description }) {
   return (
@@ -21,9 +21,10 @@ export default function ServiceCard({ icon, title, description }) {
         <h3 className="font-display text-xl font-semibold text-white mb-3">{title}</h3>
         <p className="text-sm leading-relaxed text-steel-300">{description}</p>
         <a
-          href={buildWhatsAppLink(`Hello DLB Petroleum, I want to enquire about ${title}.`)}
-          target="_blank"
-          rel="noreferrer"
+          href={buildMailtoLink(
+            `Service Enquiry: ${title}`,
+            `Hello DLB Petroleum, I want to enquire about ${title}.`
+          )}
           className="mt-6 inline-flex w-fit items-center gap-2 bg-white px-4 py-2.5 font-display text-xs font-bold uppercase tracking-[0.12em] text-[#e30613] transition-colors hover:bg-[#e30613] hover:text-white clip-corner-sm"
         >
           Enquire

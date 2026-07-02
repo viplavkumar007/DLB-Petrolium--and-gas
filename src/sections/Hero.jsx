@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { hero } from '../data/siteContent';
 import { staggerContainer, staggerItem, heroHeading } from '../lib/animations';
-import { buildWhatsAppLink } from '../lib/whatsapp';
+import { buildMailtoLink } from '../lib/whatsapp';
 
 const initialBookForm = {
   name: '',
@@ -44,7 +44,7 @@ export default function Hero() {
       `PAN Number: ${bookForm.pan}`,
     ].join('\n');
 
-    window.open(buildWhatsAppLink(message), '_blank', 'noopener,noreferrer');
+    window.location.href = buildMailtoLink('Book Connection Lead', message);
     setBookForm(initialBookForm);
     closeBookModal();
   }

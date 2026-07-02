@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Button from '../common/Button';
-import { buildWhatsAppLink } from '../../lib/whatsapp';
+import { buildMailtoLink } from '../../lib/whatsapp';
 
 const initialState = { name: '', phone: '', email: '', city: '', message: '' };
 
@@ -84,8 +84,19 @@ export default function ContactForm({ onSuccess }) {
 
     window.setTimeout(() => {
       setStatus('success');
-      const message = `New enquiry from ${values.name} (${values.city || 'N/A'}): ${values.message}`;
-      onSuccess?.(message);
+      const emailBody = [
+        'New enquiry from the DLB Petroleum website.',
+        '',
+        `Name: ${values.name}`,
+        `Phone: ${values.phone}`,
+        `Email: ${values.email || 'N/A'}`,
+        `City: ${values.city || 'N/A'}`,
+        '',
+        'Message:',
+        values.message,
+      ].join('\n');
+      window.location.href = buildMailtoLink('Website Enquiry Lead', emailBody);
+      onSuccess?.(`New enquiry email prepared for ${values.name} (${values.city || 'N/A'}).`);
       window.setTimeout(() => {
         setValues(initialState);
         setStatus('idle');
@@ -121,19 +132,10 @@ export default function ContactForm({ onSuccess }) {
       <Field label="City" name="city" value={values.city} error={errors.city} onChange={handleChange} />
       <Field label="Message" name="message" as="textarea" value={values.message} error={errors.message} onChange={handleChange} required />
 
-      <div className="flex flex-col sm:flex-row items-center gap-3 mt-1">
+      <div className="flex items-center mt-1">
         <Button type="submit" variant="primary" loading={status === 'loading'} className="w-full sm:w-auto" icon="fa-arrow-right">
-          {status === 'loading' ? 'Sending' : 'Send Message'}
+          {status === 'loading' ? 'Sending' : 'Send Enquiry'}
         </Button>
-        <a
-          href={buildWhatsAppLink()}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-md border border-[#25D366] px-6 py-3 text-sm font-display font-semibold text-[#1c9950] hover:bg-[#25D366] hover:text-white transition-colors duration-200"
-        >
-          <i className="fab fa-whatsapp" aria-hidden="true" />
-          WhatsApp Instead
-        </a>
       </div>
     </form>
   );

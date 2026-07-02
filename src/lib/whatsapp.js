@@ -11,10 +11,10 @@ export function buildWhatsAppLink(customMessage) {
 }
 
 export function buildMailtoLink(subject, body) {
-  const params = new URLSearchParams();
-  if (subject) params.set('subject', subject);
-  if (body) params.set('body', body);
-  return `mailto:${contact.emailPrimary}?${params.toString()}`;
+  const params = [];
+  if (subject) params.push(`subject=${encodeURIComponent(subject)}`);
+  if (body) params.push(`body=${encodeURIComponent(body)}`);
+  return `mailto:${contact.emailPrimary}${params.length ? `?${params.join('&')}` : ''}`;
 }
 
 export function buildTelLink() {
